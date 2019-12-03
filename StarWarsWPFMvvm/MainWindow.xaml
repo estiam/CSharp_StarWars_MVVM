@@ -1,0 +1,31 @@
+﻿<Window x:Class="StarWarsWPFMvvm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StarWarsWPFMvvm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#000">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+ 
+        <ListBox ItemsSource="{Binding Characters}" SelectedItem="{Binding SelectedCharacter}" Grid.Row="2" Grid.Column="1" />
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Foreground="White">Name</Label>
+                <TextBox IsEnabled="False" Text="{Binding SelectedCharacter.Name}" Width="250"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
